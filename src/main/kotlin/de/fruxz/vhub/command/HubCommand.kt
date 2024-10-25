@@ -23,24 +23,24 @@ object HubCommand {
             if (target.currentServer.getOrNull()?.server != hubServer) {
 
                 target.sendMessage(
-                    Component.text("Connecting to the hub server...")
+                    Component.text("正在连接中心服务器...")
                         .color(NamedTextColor.GRAY)
                 )
                 target.createConnectionRequest(hubServer).fireAndForget()
 
             } else {
                 target.sendMessage(
-                    Component.text("You are already connected to the hub server.")
+                    Component.text("你已连接到中心服务器。")
                         .color(NamedTextColor.RED)
                 )
             }
 
         } else {
             target.sendMessage(
-                Component.text("The hub server is not available.")
+                Component.text("中心服务器目前不可用。")
                     .color(NamedTextColor.RED)
                     .hoverEvent(
-                        Component.text("None of the configured servers are currently reachable!")
+                        Component.text("当前配置的所有服务器均无法访问！")
                             .color(NamedTextColor.GRAY)
                     )
             )
@@ -60,7 +60,7 @@ object HubCommand {
                     sendToHub(source)
                 } else {
                     source.sendMessage(
-                        Component.text("You must be a player to use this command.")
+                        Component.text("你必须是一名玩家才能使用此命令。")
                             .color(NamedTextColor.RED)
                     )
                 }
@@ -86,27 +86,27 @@ object HubCommand {
                         if (targetPlayer != null) {
                             sendToHub(targetPlayer)
                             source.sendMessage(
-                                Component.text("You sent ")
+                                Component.text("你将 ")
                                     .color(NamedTextColor.GRAY)
                                     .append(
                                         Component.text(targetPlayer.username)
                                             .color(NamedTextColor.YELLOW)
                                     )
                                     .append(
-                                        Component.text(" to the hub server.")
+                                        Component.text(" 发送到了中心服务器。")
                                             .color(NamedTextColor.GRAY)
                                     )
                             )
                         } else {
                             source.sendMessage(
-                                Component.text("Player ")
+                                Component.text("玩家 ")
                                     .color(NamedTextColor.RED)
                                     .append(
                                         Component.text(target)
                                             .color(NamedTextColor.YELLOW)
                                     )
                                     .append(
-                                        Component.text(" is not online.")
+                                        Component.text(" 当前不在线。")
                                             .color(NamedTextColor.RED)
                                     )
                             )
